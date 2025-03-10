@@ -1,0 +1,23 @@
+---
+name: RStudio Server (containerized)
+category: Interactive Apps
+subcategory: RStudio
+role: batch_connect
+description: |
+  Containerized implementation of RStudio Server, an IDE for [R].
+  For your convenience [Tidyverse] and [Quarto] are pre-installed.
+
+  <small>
+  Versions:
+  
+  R: 4.3.2</br/>
+  RStudio: 2023.09.1-494</br/> 
+  Quarto: 1.3.450</br/>
+
+  
+  [R]: https://www.r-project.org/
+  [Tidyverse]: https://www.tidyverse.org/
+  [Quarto]: https://quarto.org
+  </small>
+tile:
+        sub_caption: "Includes Tidyverse and Quarto"

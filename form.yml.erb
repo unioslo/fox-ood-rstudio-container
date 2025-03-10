@@ -1,0 +1,121 @@
+---
+cluster: "fox"
+
+form:
+  - auto_accounts
+  - ec_alacarte
+  - ec_mem
+  - ec_cpus
+  - ec_gpus
+  - bc_num_hours
+  - ec_modules
+  - ec_apptainer_select
+  - ec_image
+
+attributes:
+
+  auto_accounts:
+          label: "Choose the Educloud project:"
+          help: |
+                  <small>If you are unsure, ask the project principal</small>
+  ec_alacarte:
+          label: "Choose resources:"
+          widget: "select"
+          required: "true"
+          options:
+                  - 
+                    [
+                            "Small (8 cores, 16GB RAM)", "small",
+                            data-set-ec-cpus: "8",
+                            data-set-ec-mem: "16",
+                            data-set-ec-gpus: "0",
+                            data-hide-ec-cpus: "true",
+                            data-hide-ec-gpus: "true",
+                            data-hide-ec-mem: "true",
+                    ]
+                  - 
+                    [
+                            "Medium 16 cores, 32GB RAM)", "medium",
+                            data-set-ec-cpus: "16",
+                            data-set-ec-mem: "32",
+                            data-set-ec-gpus: "0",
+                            data-hide-ec-cpus: "true",
+                            data-hide-ec-gpus: "true",
+                            data-hide-ec-mem: "true",
+                    ]
+                  - 
+                    [
+                            "Large (32 cores, 64GB RAM)", "large",
+                            data-set-ec-cpus: "32",
+                            data-set-ec-mem: "64",
+                            data-set-ec-gpus: "0",
+                            data-hide-ec-cpus: "true",
+                            data-hide-ec-gpus: "true",
+                            data-hide-ec-mem: "true",
+                    ]
+                  - 
+                    [
+                            "GPU (1x A100, 24 cores, 256GB RAM)", "gpu",
+                            data-set-ec-cpus: "24",
+                            data-set-ec-mem: "256",
+                            data-set-ec-gpus: "1",
+                            data-hide-ec-cpus: "true",
+                            data-hide-ec-gpus: "true",
+                            data-hide-ec-mem: "true",
+                    ]
+                  - 
+                    [
+                          "Advanced (Choose resources manually)", "advanced",
+                          data-set-ec-cpus: "1",
+                          data-set-ec-mem: "1",
+                    ]
+
+  ec_apptainer_select:
+          label: "Use default or custom container?"
+          widget: "select"
+          options:
+                  - 
+                    [
+                            "Default (Recommended)", "default",
+                            data-hide-ec-image: true,
+                    ]
+                  -
+                    [
+                            "Custom", "custom",
+                    ]
+
+  ec_image:
+    label: "Full path to your custom apptainer image:"
+    value: ''
+
+  ec_cpus:
+    label: "Number of CPU cores:"
+    widget: "number_field"
+    value: "1"
+    required: true
+
+  ec_gpus:
+    label: "Number of GPUs:"
+    widget: "number_field"
+    value: "0"
+    required: true
+
+  ec_mem:
+    label: "RAM (in GB):"
+    value: "1"
+    widget: "number_field"
+    required: true
+
+  bc_num_hours:
+    label: "Runtime (in hours) (required)"
+    widget: "number_field"
+    required: true
+    value: "1"
+
+  ec_modules:
+   label: "Additional modules (optional)"
+   value: ''
+   cacheable: false
+   help: <small>Space separated list of additional modules to load</br/>
+         Run `module avail` for a full list. </small>
+
