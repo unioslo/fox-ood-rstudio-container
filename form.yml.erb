@@ -3,6 +3,7 @@ cluster: "fox"
 
 form:
   - auto_accounts
+  - ec_mail_on_start
   - global_fox_alacarte
   - ec_mem
   - ec_cpus
@@ -18,6 +19,14 @@ attributes:
           label: "Choose the Educloud project:"
           help: |
                   <small>If you are unsure, ask the project principal</small>
+
+  ec_mail_on_start:
+    label: "Send e-mail when session starts"
+    widget: "check_box"
+    value: false
+    help: |
+      <small>Using the e-mail your account is registered to</small>
+
   ec_alacarte:
           label: "Choose resources:"
           widget: "select"
